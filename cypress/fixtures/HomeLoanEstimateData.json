@@ -1,0 +1,14 @@
+{
+  "ApplicantType": "#application_type_single",
+  "ApplicantTypeS": "S",
+  "Dependants": 0,
+  "PropertyType": "Home",
+  "AnnualIncome": 100000,
+  "OtherAnnualIncome": 10000,
+  "MonthlyLivingExpenses": 500,
+  "Repayments": 0,
+  "OtherRepayments": 100,
+  "Commitments": 0,
+  "CreditCardLimit": 10000,
+  "Estimate": "$504,000"
+}
