@@ -2,6 +2,11 @@
   "name": "HomeLoadCalculator",
   "version": "1.0.0",
   "dependencies": {
-    
+    "cypress": "^12.11.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mochawesome": "^7.1.3"
+  },
+  "scripts": {
+    "cy:run": "cypress run --spec='cypress/e2e/HomeLoanCalculatorTests/HomeLoanCalculatorForm.cy.js' --reporter mochawesome --reporter-options reportDir=\"cypress/results\",overwrite=true,html=true"
   }
 }
