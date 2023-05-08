@@ -1,4 +1,4 @@
-# HomeLoadCalculator
+# HomeLoanCalculator
 
 This repo contains test scripts to validate the behavior of Home Loan Calculator.
 
