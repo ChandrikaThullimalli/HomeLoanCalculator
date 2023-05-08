@@ -5,4 +5,5 @@ module.exports = defineConfig({
     baseURL:"https://anz.com.au/personal/home-loans/calculators-tools/much-borrow/",
     setupNodeEvents(on, config) {
   },
+}
 });
