@@ -1,25 +1,20 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("verifyYourDetails",()=>{
+    cy.get("#application_type_single").should('be.checked');
+    cy.get("#application_type_joint").should('not.be.checked');
+    cy.get("#borrow_type_home").should('be.checked');
+    cy.get("#borrow_type_investment").should('not.be.checked');
+});
+
+Cypress.Commands.add("verifyYourEarnings",()=>{
+    cy.get("#q2q1i1").next('input').invoke("text").should('eq','');
+    cy.get("#q2q2i1").next('input').invoke("text").should('eq','');
+});
+
+Cypress.Commands.add("verifyYourExpenses",()=>{
+    cy.get("#expenses").invoke("text").should('eq','');
+    cy.get("#homeloans").invoke("text").should('eq','');
+    cy.get("#otherloans").invoke("text").should('eq','');
+    cy.get("#q3q4i1").next('input').invoke("text").should('eq','');
+    cy.get("#credit").invoke("text").should('eq','');
+    cy.get("#borrowResultTextAmount").invoke('text').should('eq','$0');
+});

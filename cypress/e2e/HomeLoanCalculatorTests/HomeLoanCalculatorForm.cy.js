@@ -28,33 +28,22 @@ describe('Home Loan Calculator App', () => {
         //Verify Estimated Borrow result
         cy.get("#btnBorrowCalculater").click().then(()=>{
             cy.get("#borrowResultTextAmount").invoke('text').should('eq',this.regdata.Estimate);
-            cy.get(".start-over").should("be.visible");
-        });
+            cy.get(".borrow__result__action > .result__restart > .start-over").should("be.visible");
+            });
         });
     });
 
     it('start over and validate field reset', () => {
-        cy.get(".start-over").click({multiple:true,force: true},()=>{
+
+        //Click on Start Over and verify all the fields
+        cy.get(".start-over").click({multiple:true,force: true}).then(()=>{
             //Verify Your Details
-            cy.get("#application_type_single :checked").should('be.checked');
-            cy.get("#application_type_joint").should('not.be.checked');
-            cy.get("#borrow_type_home :checked").should('be.checked');
-            cy.get("#borrow_type_investment").should('not.be.checked');
-            cy.get("[title = 'Number of dependants']").invoke('text').should('eq','0')
-
+            cy.verifyYourDetails();
             //Verify Your Earnings
-            cy.get("#q2q1i1").next('input').invoke("value").eq(0);
-            cy.get("#q2q2i1").next('input').invoke("value").eq(0);
-
+            cy.verifyYourEarnings();
             //Verify Your Expenses
-            cy.get("#expenses").invoke("value").eq(0);
-            cy.get("#homeloans").invoke("value").eq(0);
-            cy.get("#otherloans").invoke("value").eq(0);
-            cy.get("#q3q4i1").next('input').invoke("value").eq(0);
-            cy.get("#credit").invoke("value").eq(0);
-            cy.get("#borrowResultTextAmount").invoke('text').should('eq','0');
+            cy.verifyYourExpenses();
         });
-
     });
 
-})
+});
